@@ -6,12 +6,11 @@ var app = express();
 if(process.env.NODE_ENV === 'development'){
 	app.use(morgan('dev'));	
 }else if(process.env.NODE_ENV === 'production'){
-	
+
 }
 
-app.get('/', function (req, res){
-	res.send('Holaaaa');
-});
+//Load router
+require('../app/routes/main.route')(app);
 
 module.exports = function (){
 	return app;
